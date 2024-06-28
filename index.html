@@ -75,16 +75,121 @@
             </div>
             <img src="./img/banner3.png" alt="iPhone14">
         </section>
+        <section class="products">
+
+            <div class="mobile">
+                <div class="text5">
+                    <div class="firstText">
+                        <h2>iPhone 14 Pro</h2>
+                        <p>Pro. Beyond.</p>
+                        <a href="">Learn more</a>
+                        <a href="">Buy</a>
+                    </div>
+                    <div class="secondText">
+                        <h2>iPad</h2>
+                        <p>Lovable. Drawable. Magical</p>
+                        <a href="">Learn more</a>
+                        <a href="">Buy</a>
+                    </div>
+                </div>
+                <img src="./img/iphone.png" alt="iphone 14">
+                <img src="./img/ipad.png" alt="">
+            </div>
+        </section>
+        <section class="products2">
+            <div class="mobile">
+                <div class="text6">
+                    <div class="Text1">
+                        <h2>AirPods</h2>
+                        <p>Share the joy.</p>
+                        <a href="">Shop</a>
+                    </div>
+                    <div class="Text2">
+                        <h2>WATCH</h2>
+                        <p class="specialText">SERIES 8</p>
+                        <p>A healthy leap ahead.</p>
+                        <a href="">Learn more</a>
+                        <a href="">Buy</a>
+                    </div>
+                </div>
+                <img src="./img/airpods.png" alt="">
+                <img src="./img/watch1.png" alt="">
+            </div>
+        </section>
+        <section class="product">
+            <div class="mobile">
+                <div class="text5">
+                    <div class="Text">
+                        <h2>WATCH</h2>
+                        <p class="specialText">ULTRA.</p>
+                        <p>Adventure awaits.</p>
+                        <a href="">Learn more</a>
+                        <a href="">Buy</a>
+                    </div>
+                    <div class="Textp3">
+                        <h2>Card</h2>
+                        <p>Get up to 3% Daily Cash back
+                            with every purchase.
+                        </p>
+                        
+                        <a href="">Learn more</a>
+                        <a href="">Buy</a>
+                    </div>
+                </div>
+                <img src="./img/watch.png" alt="">
+                <img src="./img/card.png" alt="">
+            </div>
+        </section>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <!-- As imagens serão adicionadas aqui via JavaScript -->
+            </div>
+        </div>
     </main>
     <footer>
         <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis eaque aliquid alias sint quasi omnis modi adipisci blanditiis commodi distinctio voluptas consequuntur, maiores molestias culpa maxime sapiente repellat amet ab!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere a sapiente necessitatibus corrupti tempora illo sunt architecto optio, laudantium natus? Ipsa soluta neque eaque ipsum, tempore commodi sint aspernatur at.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor necessitatibus enim sed optio voluptatem nihil eaque eveniet voluptas excepturi porro tempora similique modi veritatis ipsa, in eum. Beatae, esse. Harum!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos dolorem nulla nisi id modi eius quisquam explicabo repudiandae excepturi officiis. Tenetur facere fugit voluptates sed, voluptatibus quos ab mollitia iure?
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto sapiente distinctio eos, animi pariatur est eum porro adipisci harum ut at soluta accusamus quod libero. Laboriosam deserunt totam esse dolorem.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error non alias neque expedita quasi necessitatibus saepe quod velit est, ratione quisquam tempore nesciunt accusantium ullam voluptate reiciendis tempora omnis doloribus?
+            Site feito por: Leonardo Fernandes.<br>
+            Essa replica foi feita apenas para testar meus conhecimentos em HTML e CSS.
+            Meu GitHub e Linkedin: 
         </p>
+        <div class="sep"></div>
+        <div class="redesSociais">
+            <a href="https://www.linkedin.com/in/leonardo-RF/">
+                <img src="./img/linkedin.png" alt="Linkedin link">
+            </a>
+            <a href="https://github.com/FernandesLR">
+                <img src="./img/github.png" alt="Github link">
+            </a>
+        </div>
     </footer>
+    <script>
+        let currentIndex = 0;
+        let images = [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            images = document.querySelectorAll("main img");
+            const carouselInner = document.querySelector(".carousel-inner");
+
+            images.forEach((img, index) => {
+                const imgClone = img.cloneNode(true);
+                imgClone.style.width = "100%";
+                carouselInner.appendChild(imgClone);
+            });
+
+            const updateCarousel = () => {
+                const offset = -currentIndex * 100;
+                carouselInner.style.transform = `translateX(${offset}%)`;
+            };
+
+            const nextSlide = () => {
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                updateCarousel();
+            };
+
+            setInterval(nextSlide, 3000); // Muda a cada 3 segundos
+
+            updateCarousel();
+        });
+    </script>
 </body>
 </html>
